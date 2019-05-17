@@ -4,6 +4,11 @@
     tabindex="-1"
     :aria-hidden="!isActive"
     role="tabpanel"
+    v-bind:style="`
+      -ms-flex-preferred-size: ${slideWidth > 1 ? slideWidth + 'px' : 'inherit'};
+      flex-basis: ${slideWidth > 1 ? slideWidth + 'px' : 'inherit'};
+      ${slideWidth > 1 ? 'min-width:' + slideWidth + 'px' : ''};
+    `"
     :class="{
       'VueCarousel-slide-active': isActive,
       'VueCarousel-slide-center': isCenter,
@@ -81,6 +86,9 @@ export default {
     isAdjustableHeight() {
       const { adjustableHeight } = this.carousel;
       return adjustableHeight;
+    },
+    slideWidth() {
+      return this.carousel.slideWidth;
     }
   },
   methods: {
@@ -110,14 +118,24 @@ export default {
 
 <style>
 .VueCarousel-slide {
+  -ms-flex-preferred-size: inherit;
+  flex-basis: inherit;
+  -webkit-box-flex: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   flex-basis: inherit;
   flex-grow: 0;
-  flex-shrink: 0;
   user-select: none;
   backface-visibility: hidden;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .VueCarousel-slide-adjustableHeight {

@@ -83,6 +83,7 @@ export default {
 .VueCarousel-navigation-button {
   position: absolute;
   top: 50%;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: #000;
   text-decoration: none;
@@ -100,12 +101,16 @@ export default {
 
 .VueCarousel-navigation-next {
   right: 0;
+  -webkit-transform: translateY(-50%) translateX(100%);
+  -ms-transform: translateY(-50%) translateX(100%);
   transform: translateY(-50%) translateX(100%);
   font-family: "system";
 }
 
 .VueCarousel-navigation-prev {
   left: 0;
+  -webkit-transform: translateY(-50%) translateX(-100%);
+  -ms-transform: translateY(-50%) translateX(-100%);
   transform: translateY(-50%) translateX(-100%);
   font-family: "system";
 }

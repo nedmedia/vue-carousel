@@ -14,7 +14,10 @@
           { 'VueCarousel-inner--center': isCenterModeEnabled }
         ]"
         :style="{
+          '-webkit-transform': `translateX(${currentOffset}px);`,
+              '-ms-transform': `translateX(${currentOffset}px);`,
           'transform': `translate(${currentOffset}px, 0)`,
+          '-webkit-transition': `${transitionStyle};`,
           'transition': dragging ? 'none' : transitionStyle,
           'ms-flex-preferred-size': `${slideWidth}px`,
           'webkit-flex-basis': `${slideWidth}px`,
@@ -989,8 +992,14 @@ export default {
 }
 
 .VueCarousel-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
