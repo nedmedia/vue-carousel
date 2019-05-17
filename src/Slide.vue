@@ -7,7 +7,7 @@
     v-bind:style="`
       -ms-flex-preferred-size: ${slideWidth > 1 ? slideWidth + 'px' : 'inherit'};
       flex-basis: ${slideWidth > 1 ? slideWidth + 'px' : 'inherit'};
-      ${slideWidth > 1 ? 'min-width:' + slideWidth + 'px' : ''};
+      ${slideWidth > 1 ? 'width:' + slideWidth + 'px' : ''};
     `"
     :class="{
       'VueCarousel-slide-active': isActive,
